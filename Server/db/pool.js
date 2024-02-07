@@ -1,10 +1,10 @@
 const mysql = require('mysql2')
-const {Pool} = require('pg')
-const pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
-    ssl: {
-        rejectUnauthorized: false
-    }
-});
+const pool = mysql.createPool({
+    connectionLimit:10,
+    host:'localhost',
+    user:'root',
+    password:'new_password',
+    database:"GDSC"
+})
 
 module.exports={pool}
